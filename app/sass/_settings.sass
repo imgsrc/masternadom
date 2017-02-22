@@ -1,0 +1,275 @@
+@import ../../bourbon/bourbon
+@import vars
+
+*::-webkit-input-placeholder
+  color: #999
+  opacity: 1
+
+*:-moz-placeholder
+  color: #999
+  opacity: 1
+
+*::-moz-placeholder
+  color: #999
+  opacity: 1
+
+*:-ms-input-placeholder
+  color: #999
+  opacity: 1
+
+input:focus::-webkit-input-placeholder,
+textarea:focus::-webkit-input-placeholder
+  color: transparent !important
+
+input:focus::-moz-placeholder,
+textarea:focus::-moz-placeholder
+  color: transparent !important
+
+input:focus:-ms-input-placeholder,
+textarea:focus:-ms-input-placeholder
+  color: transparent !important
+
+body
+  font-size: 16px
+  min-width: 320px
+  position: relative
+  line-height: 1.6
+  overflow-x: hidden
+  background-color: #fff
+  color: #222
+  margin: 0
+  font-family: $default-font
+
+h1, h2, h3, h4, h5, h6
+  font-family: "OpenSansLight", sans-serif
+  font-weight: normal
+
+h1
+  font-size: em(38px)
+  line-height: 1.2
+  margin-top: 0
+
+h2
+  font-size: em(38px)
+
+h3, h4
+  font-family: "OpenSansSemiBold", sans-serif
+  text-transform: uppercase
+
+h3
+  font-size: em(20px)
+
+h4
+  font-size: em(16px)
+
+a
+  color: #fff
+  text-decoration: underline
+  outline: none !important
+  &:hover
+    text-decoration: none
+
+b, strong
+  font-family: "OpenSansSemiBold", sans-serif
+  font-weight: normal
+
+.button
+  display: inline-block
+  border: none
+  background-color: $accent
+  text-align: center
+  color: #fff
+  font-size: em(14px)
+  letter-spacing: 2px
+  text-transform: uppercase
+  padding: 13px 34px
+  border-radius: 5px
+  text-decoration: none
+  +mt(0.15s)
+  &:hover, &:focus
+    color: #fff
+    text-decoration: none
+  &:hover
+    background-color: lighten($accent, 10%)
+  &:active
+    background-color: darken($accent, 10%)
+    transform: translateY(2px)
+
+.button-small
+  padding: 5px 8px
+  font-size: em(12px)
+  background-color: lighten($accent, 10%)
+  &:hover
+    background-color: lighten($accent, 20%)
+  &:active, &:focus
+    background-color: darken($accent, 10%)
+
+.button-gray
+  background-color: #e8e8e8
+  color: #666
+
+.text-center
+  text-align: center
+
+.responsive-img
+  max-width: 100%
+
+.hidden
+  display: none
+
+.s-wide
+  padding: 90px 0 70px
+  h2
+    text-align: center
+    margin:
+      top: 0
+      bottom: 80px
+    line-height: em(19px)
+
+.s-gray
+  background-color: #f8f8f8
+
+.s-dark
+  color: #fff
+  background-color: rgba(0, 0, 0, .85)
+
+.s-orange
+  background-color: $accent
+  color: #fff
+
+//Magnific Popup Customize
+.mfp-ready .mfp-figure
+  opacity: 0
+
+.mfp-zoom-in
+  .mfp-figure, .mfp-iframe-holder .mfp-iframe-scaler
+    opacity: 0
+    transition: all 0.3s ease-out
+    transform: scale(0.95)
+
+  &.mfp-bg, .mfp-preloader
+    opacity: 0
+    transition: all 0.3s ease-out
+
+  &.mfp-image-loaded .mfp-figure
+    opacity: 1
+    transform: scale(1)
+
+  &.mfp-ready
+    .mfp-iframe-holder .mfp-iframe-scaler
+      opacity: 1
+      transform: scale(1)
+
+    &.mfp-bg, .mfp-preloader
+      opacity: 0.8
+
+  &.mfp-removing
+    .mfp-figure, .mfp-iframe-holder .mfp-iframe-scaler
+      transform: scale(0.95)
+      opacity: 0
+
+    &.mfp-bg, .mfp-preloader
+      opacity: 0
+
+.mfp-iframe-scaler
+  overflow: visible
+
+.mfp-zoom-out-cur
+  cursor: auto
+  .mfp-image-holder .mfp-close
+    cursor: pointer
+
+.mfp-preloader
+  width: 30px !important
+  height: 30px !important
+  background-color: $accent
+  opacity: 0.8
+  margin: 0 auto
+  animation: rotateplane 1.2s infinite ease-in-out
+
+@keyframes rotateplane
+  0%
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg)
+  50%
+    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg)
+  100%
+    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg)
+
+//End MFP
+
+//Fade-zoom animation for first dialog
+.my-mfp-zoom-in
+  .offer-popup,
+  .form-callback
+    opacity: 0
+    transform: scale(0.8)
+  &.mfp-ready .offer-popup,
+  &.mfp-ready .form-callback
+    opacity: 1
+    transform: scale(1)
+  &.mfp-removing .offer-popup,
+  &.mfp-removing .form-callback
+    transform: scale(0.8)
+    opacity: 0
+  &.mfp-bg
+    opacity: 0
+    transition: opacity 0.3s ease-out
+  &.mfp-ready.mfp-bg
+    opacity: 0.8
+  &.mfp-removing.mfp-bg
+    opacity: 0
+
+*
+  transition: filter .25s ease
+
+.mfp-wrap ~ *
+  filter: blur(5px)
+
+.s-equipment
+  h2
+    margin-bottom: 60px
+
+form
+  border: 1px solid lighten($accent, 20%)
+  border-radius: 10px
+  padding: 25px
+  h4
+    text-transform: none
+  label
+    margin-bottom: 14px
+    display: block
+    span
+      display: block
+      font-size: em(14px)
+      color: #fff
+      opacity: .8
+      margin-bottom: 3px
+    input
+      background-color: rgba(255, 255, 255, 0.6)
+      border-radius: 2px
+      border: none
+      padding: 9px 15px 7px
+      display: block
+      width: 100%
+      outline: none
+      color: #222
+      font-size: em(15px)
+      +mt(0.5s)
+      &:focus
+        background-color: rgba(255, 255, 255, 0.8)
+    textarea
+      width: 100%
+      background-color: rgba(255, 255, 255, 0.6)
+      border-radius: 2px
+      border: none
+      outline: none
+      padding: 9px 15px 7px
+      &:focus
+        background-color: rgba(255, 255, 255, 0.8)
+        color: $color
+        
+.owl-theme
+  .owl-dots
+    .owl-dot.active
+      span
+        background-color: $accent
